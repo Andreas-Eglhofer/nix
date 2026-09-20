@@ -19,11 +19,4 @@ vim.opt.wrap = false
 vim.opt.mouse = "a"
 vim.opt.confirm = true
 
-vim.keymap.set("n", "<leader>ll", function()
-  vim.cmd("write")
-  vim.cmd("!cd %:p:h && latexmk -pdf %:t")
-end)
-
-vim.keymap.set("n", "<leader>lc", function()
-  vim.cmd("!cd %:p:h && latexmk -c %:t")
-end)
+vim.g.vimtex_view_method = "zathura"

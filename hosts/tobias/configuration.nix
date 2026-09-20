@@ -1,78 +1,73 @@
-{ lib, pkgs, ... }:
+{ lib, ... }:
 
 {
-  imports = [
-    ./hardware-configuration.nix
-    ./graphics.nix
-    ./networking.nix
-  ];
+imports = [
+./hardware-configuration.nix
+./graphics.nix
+./networking.nix
+];
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      "nvidia-x11"
-    ];
+nixpkgs.config.allowUnfreePredicate = pkg:
+builtins.elem (lib.getName pkg) [
+"nvidia-x11"
+];
 
-  networking.hostName = "tobias";
+networking.hostName = "tobias";
 
-  time.timeZone = "America/New_York";
-  i18n.defaultLocale = "en_US.UTF-8";
+time.timeZone = "America/New_York";
+i18n.defaultLocale = "en_US.UTF-8";
 
-  console = {
-    keyMap = "us";
-    font = "Lat2-Terminus16";
-  };
+console.keyMap = "us";
 
-  fonts.packages = with pkgs; [
-    terminus_font_ttf
-  ];
+networking.firewall.enable = true;
 
-  networking.firewall.enable = true;
+users.users.andreas = {
+isNormalUser = true;
+extraGroups = [
+"wheel"
+"networkmanager"
+];
+};
 
-  users.users.andreas = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-    ];
-  };
+security.sudo.wheelNeedsPassword = true;
+security.rtkit.enable = true;
 
-  security.sudo.wheelNeedsPassword = true;
-  security.rtkit.enable = true;
+boot.loader.systemd-boot.enable = true;
+boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+nix.settings.experimental-features = [
+"nix-command"
+"flakes"
+];
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+programs.sway = {
+enable = true;
+xwayland.enable = true;
+extraPackages = [ ];
+};
 
-  programs.sway = {
-    enable = true;
-    xwayland.enable = true;
-    extraPackages = [ ];
-  };
+services.pipewire = {
+enable = true;
+alsa.enable = true;
+pulse.enable = true;
+wireplumber.enable = true;
+};
 
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
-    wireplumber.enable = true;
-  };
+hardware.enableRedistributableFirmware = true;
 
-  hardware.enableRedistributableFirmware = true;
+services.power-profiles-daemon.enable = true;
 
-  services.power-profiles-daemon.enable = true;
+services.logind.settings.Login = {
+HandleLidSwitch = "suspend";
+HandleLidSwitchDocked = "ignore";
+};
 
-  services.logind.settings.Login = {
-    HandleLidSwitch = "suspend";
-    HandleLidSwitchDocked = "ignore";
-  };
+hardware.bluetooth = {
+enable = true;
+powerOnBoot = true;
+};
 
-  hardware.bluetooth = {
-  enable = true;
-  powerOnBoot = true;
-  };
+services.upower.enable = true;
 
-  system.stateVersion = "26.05";
+system.stateVersion = "26.05";
 }

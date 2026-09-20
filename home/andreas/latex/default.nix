@@ -12,6 +12,11 @@ mathtools
 tools
 siunitx
 physics
+esint
+
+pgf
+tikz-3dplot
+pgfplots
 
 geometry
 enumitem

@@ -24,6 +24,11 @@
 
         cd "$HOME/School/2026f/$1" || return
       }
+      set_title() {
+      printf '\033]0;foot - %s\007' "$(pwd)"
+      }
+     
+      PROMPT_COMMAND='set_title'
 
       PS1='\u@\h:\w\$ '
     '';

@@ -6,7 +6,6 @@ enable = true;
 
 settings = {
   main = {
-    font = "Terminus:size=12";
     pad = "2x2";
   };
 
@@ -46,6 +45,7 @@ settings = {
     bright7 = "ffffff";
   };
 };
+
 
 };
 }
