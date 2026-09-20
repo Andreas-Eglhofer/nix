@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
 {
   imports = [
@@ -16,7 +16,15 @@
 
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
-  console.keyMap = "us";
+
+  console = {
+    keyMap = "us";
+    font = "Lat2-Terminus16";
+  };
+
+  fonts.package = [
+    pkgs.terminus_font_ttf
+  ];
 
   networking.firewall.enable = true;
 
