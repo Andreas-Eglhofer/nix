@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -e
+cd "$HOME/Code/personal/nix"
+nix flake show path:.
+sudo nixos-rebuild dry-build --flake path:.#tobias

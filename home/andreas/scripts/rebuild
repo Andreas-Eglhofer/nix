@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -e
+cd "$HOME/Code/personal/nix"
+sudo nixos-rebuild switch --flake path:.#tobias

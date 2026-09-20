@@ -1,0 +1,66 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{druzz}[2026/09/20 Druzz math and physics package]
+
+% ------------------------------------------------------------
+% Packages
+% ------------------------------------------------------------
+
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{mathtools}
+\RequirePackage{bm}
+\RequirePackage{siunitx}
+\RequirePackage{physics}
+
+% ------------------------------------------------------------
+% Number sets
+% ------------------------------------------------------------
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+% ------------------------------------------------------------
+% Unit vectors
+% ------------------------------------------------------------
+
+\newcommand{\uv}[1]{\hat{\bm{#1}}}
+
+\newcommand{\ihat}{\hat{\bm{\imath}}}
+\newcommand{\jhat}{\hat{\bm{\jmath}}}
+\newcommand{\khat}{\hat{\bm{k}}}
+\newcommand{\rhat}{\hat{\bm{r}}}
+
+% ------------------------------------------------------------
+% Differential
+% ------------------------------------------------------------
+
+\newcommand{\dd}{\mathop{}!\mathrm{d}}
+
+% ------------------------------------------------------------
+% Delimiters
+% ------------------------------------------------------------
+
+\newcommand{\inner}[2]{
+\left\langle #1, #2 \right\rangle
+}
+
+\newcommand{\avg}[1]{
+\left\langle #1 \right\rangle
+}
+
+\newcommand{\eval}[2]{
+\left. #1 \right|_{#2}
+}
+
+% ------------------------------------------------------------
+% Linear algebra
+% ------------------------------------------------------------
+
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\im}{im}

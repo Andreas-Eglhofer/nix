@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+cd "$HOME/Code/personal/nix"
+
+echo "Updating flake inputs..."
+nix flake update
+
+echo "Building updated Tobias configuration..."
+sudo nixos-rebuild build --flake path:.#tobias
+
+echo
+echo "Update built successfully."
+echo "Run 'rebuild' when you want to activate it."
