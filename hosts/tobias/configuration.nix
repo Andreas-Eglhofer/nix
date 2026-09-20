@@ -22,8 +22,8 @@
     font = "Lat2-Terminus16";
   };
 
-  fonts.package = [
-    pkgs.terminus_font_ttf
+  fonts.packages = with pkgs; [
+    terminus_font_ttf
   ];
 
   networking.firewall.enable = true;
