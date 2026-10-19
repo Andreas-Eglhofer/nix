@@ -30,7 +30,7 @@
      
       PROMPT_COMMAND='set_title'
 
-      PS1='\u@\h:\w\$ '
+      PS1='\[\e[32m\]\u@\h:\[\e[0m\]\w\$ '
     '';
   };
 }

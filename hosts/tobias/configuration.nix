@@ -10,6 +10,7 @@ imports = [
 nixpkgs.config.allowUnfreePredicate = pkg:
 builtins.elem (lib.getName pkg) [
 "nvidia-x11"
+"mathematica"
 ];
 
 networking.hostName = "tobias";
@@ -59,6 +60,7 @@ services.power-profiles-daemon.enable = true;
 
 services.logind.settings.Login = {
 HandleLidSwitch = "suspend";
+HandleLidSwitchExternalPower = "suspend";
 HandleLidSwitchDocked = "ignore";
 };
 
@@ -68,6 +70,9 @@ powerOnBoot = true;
 };
 
 services.upower.enable = true;
+
+programs.nix-ld.enable = true;
+
 
 system.stateVersion = "26.05";
 }

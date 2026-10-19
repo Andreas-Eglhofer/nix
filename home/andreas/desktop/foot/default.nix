@@ -6,6 +6,7 @@ enable = true;
 
 settings = {
   main = {
+    font = "monospace:weight=bold";
     pad = "2x2";
   };
 

@@ -15,6 +15,9 @@
     ./imv
     ./scripts
     ./latex
+    ./kicad
+    ./code_languages
+    ./tio
   ];
 
   home.username = "andreas";
@@ -32,5 +35,6 @@
     fd
     jq
     unzip
+    xournalpp
   ];
 }

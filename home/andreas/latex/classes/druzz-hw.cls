@@ -41,12 +41,10 @@ bottom=0.5in
 \newcommand{\hwstudent}{Andreas Eglhofer}
 \newcommand{\hwcourse}{}
 \newcommand{\hwassignment}{}
-\newcommand{\hwdate}{\today}
 
 \newcommand{\student}[1]{\renewcommand{\hwstudent}{#1}}
 \newcommand{\course}[1]{\renewcommand{\hwcourse}{#1}}
 \newcommand{\assignment}[1]{\renewcommand{\hwassignment}{#1}}
-\newcommand{\hwduedate}[1]{\renewcommand{\hwdate}{#1}}
 
 % ------------------------------------------------------------
 % Layout
@@ -77,32 +75,15 @@ topsep=0.3em
 
 \setlength{\headheight}{14pt}
 
-% ------------------------------------------------------------
-% Title
-% ------------------------------------------------------------
+\fancypagestyle{plain}{
+  \fancyhf{}
 
-\renewcommand{\maketitle}{
-\thispagestyle{fancy}
+  \lhead{\small\hwstudent}
+  \chead{\small\hwcourse\quad\hwassignment}
+  \rhead{\small\thepage}
 
-\begin{center}
-{\bfseries \hwcourse \quad \hwassignment}
-\end{center}
-
-\vspace{-0.7em}
-
-\noindent
-\hwstudent
-\hfill
-\hwdate
-
-\vspace{0.25em}
-\hrule
-\vspace{0.6em}
-
-\hypersetup{
-pdftitle={\hwcourse\space\hwassignment},
-pdfauthor={\hwstudent}
-}
+  \renewcommand{\headrulewidth}{0.3pt}
+  \renewcommand{\footrulewidth}{0pt}
 }
 
 % ------------------------------------------------------------
@@ -141,25 +122,9 @@ pdfauthor={\hwstudent}
 
 \newenvironment{solution}
 {
-\par
-\noindent
-\textit{Solution}\enspace
+  \par
+  \noindent
 }
 {
-\par
-}
-
-% ------------------------------------------------------------
-% Parts
-% ------------------------------------------------------------
-
-\newenvironment{parts}
-{
-\begin{enumerate}[
-label=(\alph*),
-leftmargin=2em
-]
-}
-{
-\end{enumerate}
+  \par
 }
