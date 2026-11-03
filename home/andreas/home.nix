@@ -18,6 +18,8 @@
     ./kicad
     ./code_languages
     ./tio
+    ./keepassxc
+    ./qemu
   ];
 
   home.username = "andreas";

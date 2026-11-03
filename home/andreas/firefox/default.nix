@@ -15,7 +15,7 @@
 
     profiles.andreas = {
       id = 0;
-      isDefault = true;
+      isDefault = false;
 
       settings = {
         "layout.css.devPixelsPerPx" = "0.9";
@@ -36,7 +36,7 @@
 
     profiles.hardened = {
       id = 1;
-      isDefault = false;
+      isDefault = true;
 
       settings = {
         "layout.css.devPixelsPerPx" = "0.9";
@@ -63,6 +63,10 @@
 
         // Performance
         user_pref("browser.cache.disk.enable", true);
+
+        // Password management
+        user_pref("signon.rememberSignons", false);
+        user_pref("signon.autofillForms", false);
       '';
     };
   };

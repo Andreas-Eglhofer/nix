@@ -2,30 +2,49 @@
 
 let
 tex = pkgs.texliveBasic.withPackages (ps: with ps; [
-latexmk
+  # Build tools
+  latexmk
 
-amscls
-amsmath
-amsfonts
-mathtools
+  # Mathematics and physics
+  amscls
+  amsmath
+  amsfonts
+  mathtools
+  tools
+  siunitx
+  physics
+  esint
 
-tools
-siunitx
-physics
-esint
+  # Graphics
+  pgf
+  tikz-3dplot
+  pgfplots
+  xcolor
 
-pgf
-tikz-3dplot
-pgfplots
-ec
-cm-super
+  # Fonts
+  ec
+  cm-super
+  lm
+  cfr-lm
+  nfssext-cfr
+  marvosym
+  fontawesome5
 
-geometry
-enumitem
-fancyhdr
-needspace
-hyperref
-
+  # Layout and formatting
+  geometry
+  enumitem
+  fancyhdr
+  needspace
+  hyperref
+  float
+  ragged2e
+  preprint
+  wrapfig
+  lipsum
+  titlesec
+  tcolorbox
+  environ
+  etoolbox
 ]);
 in
 {
